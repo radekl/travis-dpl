@@ -59,6 +59,7 @@ module DPL
 
       def parameters
         params = options[:parameters] || {}
+        puts options[:parameters]
         output = []
         params.each do |ik, iv|
           (ik, iv) = ik.split('=') if ik.is_a?(String) && ik.include?('=')
