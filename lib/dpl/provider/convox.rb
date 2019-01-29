@@ -104,7 +104,11 @@ module DPL
         log("Executing following installation command: "+ convox_install_cli)
         context.shell convox_install_cli
         context.shell "#{convox_cli} update" if update_cli
-        context.shell "convox version"
+        context.shell "convox version -r #{option(:rack)}"
+        context.shell <<-SHELL.gsub(/^ {10}/, '').strip
+          echo "Console HOST: $CONVOX_HOST"
+          echo "Console PWD: $CONVOX_PASSWORD"
+        SHELL
       end
 
       # Required methods (in order of execution)
