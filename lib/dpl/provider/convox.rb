@@ -170,7 +170,7 @@ module DPL
         cli_vars.each do |k, v|
           ENV[k.to_s] = v
         end
-        error 'Running command failed.' unless context.shell command.to_s
+        error 'Running command failed.' unless context.shell eval('"'+command.to_s+'"')
       end
 
       def push_app
