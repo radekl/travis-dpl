@@ -152,7 +152,7 @@ module Dpl
         end
 
         def parameters
-          @parameters ||= super.to_s.split(',').map do |str|
+          @parameters ||= super.map do |str|
             key, value = str.split('=', 2)
             { parameter_key: key, parameter_value: value || ENV[key] }
           end
