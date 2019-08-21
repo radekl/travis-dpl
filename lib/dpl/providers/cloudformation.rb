@@ -29,7 +29,7 @@ module Dpl
       opt '--create_timeout SEC', 'How many seconds to wait before the stack status becomes CREATE_FAILED', type: :integer, default: 3600, note: 'valid only when creating a stack'
       # if passing a session_token is not recommended in CI/CD why do we add it to dpl?
       opt '--session_token STR', 'AWS Session Access Token if using STS assume role', note: 'Not recommended on CI/CD'
-      opt '--parameters STR', 'Comma-separated list of key/value pairs or ENV var names', type: :array, sep: ',', eg: 'one=1,TWO'
+      opt '--parameters STR', 'key=value pairs or ENV var names', type: :array, eg: 'one=1 or ENV_VAR_TWO'
       opt '--output_file PATH', 'Path to output file to store CloudFormation outputs to'
 
       msgs login:             'Using Access Key: %{access_key_id}',
